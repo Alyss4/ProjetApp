@@ -41,6 +41,22 @@ class Upload{
             }
         }
     }
+    private function insertStudentDatabase($data){
+        foreach ($data as $row){
+            $nom = $row[1];
+            $prenom = $row[2];
+            $sql = "INSERT INTO eleve (nom, prenom, classe) VALUES (:nom, :prenom, :classe)";
+            $req = $this->pdo->prepare($sql);
+            $req->bindParam(":nom",$nom);
+            $req->bindParam(":prenom",$prenom);
+            $req->bindParam(":classe", $classe);
+            if ($req->execute()){
+                $messageErreur = "Données ajoutés avec succès.";
+            }else{
+                $messageErreur = "Erreur lors de l'ajout des données.";
+            }
+        }
+    }
 
 }
 ?>

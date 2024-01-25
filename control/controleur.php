@@ -10,6 +10,10 @@ class Controleur {
     }
 
     public function accueil(){
+        $uploadModel = new Upload();
+        if(isset($_POST["fileSubmit"])){
+            $uploadModel->uploadExcelData();
+        }
         (new View)->accueil();
     }
 
