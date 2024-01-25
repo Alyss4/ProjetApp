@@ -6,7 +6,16 @@ class Controleur {
         if(session_status() == PHP_SESSION_NONE){
             session_start();
         }
-        $this->vue = new Vue();
+        $this->vue = new View();
     }
+
+    public function accueil(){
+        (new View)->accueil();
+    }
+
+    public function erreur404(){
+        (new View)->erreur404();
+    }
+    
 }
 ?>
