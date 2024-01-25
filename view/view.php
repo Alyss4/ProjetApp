@@ -14,12 +14,24 @@ class View {
     public function accueil(){
         $this->entete();
         echo'
-        <label for=""> Importez votre liste d\'élèves </label> 
-        <input type="file" />
-        <input type="button" value="Parcourir"/>
-
-        <input type="button" value="Valider la saisie"/>
-        <input type="button" value="Exporter en PDF"/>';
+        <form method="post" enctype="multipart/form-data">
+            <label for=""> Importez votre liste d\'élèves </label> 
+            <input type="file" name="excelFile"/>
+            <button type="submit" name="fileSubmit">Valider</button>
+        </form>
+        <table border =1>
+            <tr>
+                <td>id</td>
+                <td>Nom</td>
+                <td>Prenom</td>
+                <td>idClasse</td>
+            </tr>
+            <tr>
+                <td>?</td>
+                <td>?</td>
+                <td>?</td>
+                <td>?</td>
+            </tr>';
         $this->fin();
     }
 
