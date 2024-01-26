@@ -16,6 +16,15 @@ class Controleur {
         }
         $donneesCompetence = (new Competence)->getCompetence();
         $leBareme = (new Note)->getBareme();
+        if (isset($_POST["notesubmit"])){
+            foreach($_POST["radioNote"] as $idCompetence => $note){
+                $idEleve =1;
+                $idMatiere = 1;
+                $idProfesseur = 1;
+                $idTypeNote = 1;
+                (new Note)->setNote($idEleve,$idMatiere,$idProfesseur,$idTypeNote,$note);
+            }
+        }
         (new View)->accueil($donneesCompetence,$leBareme);
     }
     public function erreur404(){

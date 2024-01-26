@@ -15,5 +15,20 @@ class Note{
         $req->execute();
         return $req->fetchAll();
     }
+    public function setNote(){
+        $sql = "INSERT INTO bulletin (idEleve, idCompetence, idMatiere, idProfesseur, idTypeNote) VALUES (:idEleve, :idCompetence, :idMatiere, :idProfesseur, :idTypeNote)";
+        $req = $this->pdo->prepare($sql);
+        $req->bindParam(":idEleve", $idEleve);
+        $req->bindParam(":idCompetence", $idCompetence);
+        $req->bindParam(":idMatiere",$idMatiere);
+        $req->bindParam(":idProfesseur",$idProfesseur);
+        $req->bindParam(":idTypeNote",$idTypeNote);
+        if($req->execute()){
+            $messageErreur = "Données ajoutée avec succès.";
+        }else{
+            $messageErreur = "Erreur lors de l'ajout des données.";
+        }
+        $req->execute();
+    }
 }
 ?>
