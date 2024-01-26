@@ -18,6 +18,7 @@ require ("model/competence.php");
 require ("model/eleve.php");
 require ("model/matiere.php");
 require ("model/professeur.php");
+require("model/note.php");
 require ("model/upload.php");
 
 if (isset($_GET["action"])){

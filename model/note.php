@@ -1,5 +1,5 @@
 <?php
-class typeNote{
+class Note{
     private $pdo; 
     public function __construct(){
         $config = parse_ini_file("config.ini");

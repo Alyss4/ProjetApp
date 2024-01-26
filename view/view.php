@@ -11,7 +11,7 @@ class View {
         </head>
         <body>';
     }
-    public function accueil($donneesCompetence){
+    public function accueil($donneesCompetence,$leBareme){
         $this->entete();
         echo'
         <form method="post" enctype="multipart/form-data">
@@ -19,6 +19,7 @@ class View {
             <input type="file" name="excelFile"/>
             <button type="submit" name="fileSubmit">Valider</button>
         </form>
+        <form method="post">
         <table border = 1>
             <tbody>
                 <tr>';
@@ -31,12 +32,20 @@ class View {
                 <tr>';
                 foreach($donneesCompetence as $competence){
                     echo'
-                    <td>'.$competence["domaine"].'</td>';
+                    <td>';
+                    foreach($leBareme as $bareme){
+                        echo'
+                        <input type="radio" id="'.$bareme['id'].'" name="radioNote['.$competence["id"].']" value="'.$bareme['points'].'"/>
+                        <label for="'.$bareme['id'].'">'.$bareme['points'].'</label>';
+                    };
+                    '</td>';
                 };
                 echo'
                 </tr>
             </tbody>
-        </table>';
+        </table>
+        <button type="submit" name="noteSubmit">Valider les notes</button>
+        </form>';
         $this->fin();
     }
 

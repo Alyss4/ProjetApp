@@ -11,12 +11,12 @@ class Controleur {
 
     public function accueil(){
         $uploadModel = new Upload();
-        $donneesCompetence = [];
         if(isset($_POST["fileSubmit"])){
             $uploadModel->uploadExcelData();
         }
         $donneesCompetence = (new Competence)->getCompetence();
-        (new View)->accueil($donneesCompetence);
+        $leBareme = (new Note)->getBareme();
+        (new View)->accueil($donneesCompetence,$leBareme);
     }
     public function erreur404(){
         (new View)->erreur404();
