@@ -14,6 +14,7 @@ require("control/controleur.php");
 
 require("view/view.php");
 
+require ("model/competence.php");
 require ("model/eleve.php");
 require ("model/matiere.php");
 require ("model/professeur.php");
@@ -22,7 +23,6 @@ require ("model/upload.php");
 if (isset($_GET["action"])){
     switch($_GET["action"]){
         case "accueil":
-
             (new controleur)->accueil();
             break;
         default:

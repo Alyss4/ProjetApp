@@ -11,7 +11,7 @@ class View {
         </head>
         <body>';
     }
-    public function accueil(){
+    public function accueil($donneesCompetence){
         $this->entete();
         echo'
         <form method="post" enctype="multipart/form-data">
@@ -19,29 +19,24 @@ class View {
             <input type="file" name="excelFile"/>
             <button type="submit" name="fileSubmit">Valider</button>
         </form>
-        <table border =1>
-            <tr>
-                <td>id</td>
-                <td>Nom</td>
-                <td>Prenom</td>
-                <td>idClasse</td>
-            </tr>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-            </tr>
-        </table>
-        <div class="dropdown-div">
-            <button type="submit" name="dropdownBtn">Matière</button>
-            <div id="dropdown-content" class="dropdownContent">
-                <a href="#">L1</a>
-                <a href="#">L2</a>
-                <a href="#">L3</a>
-            </div>
-        </div>
-        ';
+        <table border = 1>
+            <tbody>
+                <tr>';
+                foreach($donneesCompetence as $competence){
+                    echo'
+                    <td>Domaine '.$competence["domaine"].'<br>'.$competence["designation"].'</td>';
+                }
+                echo'
+                </tr>
+                <tr>';
+                foreach($donneesCompetence as $competence){
+                    echo'
+                    <td>'.$competence["domaine"].'</td>';
+                };
+                echo'
+                </tr>
+            </tbody>
+        </table>';
         $this->fin();
     }
 
