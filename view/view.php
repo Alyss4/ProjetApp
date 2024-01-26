@@ -31,7 +31,17 @@ class View {
                 <td>?</td>
                 <td>?</td>
                 <td>?</td>
-            </tr>';
+            </tr>
+        </table>
+        <div class="dropdown-div">
+            <button type="submit" name="dropdownBtn">Matière</button>
+            <div id="dropdown-content" class="dropdownContent">
+                <a href="#">L1</a>
+                <a href="#">L2</a>
+                <a href="#">L3</a>
+            </div>
+        </div>
+        ';
         $this->fin();
     }
 

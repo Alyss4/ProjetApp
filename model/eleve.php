@@ -9,6 +9,11 @@ class Eleve{
             echo $e->getMessage();
         }
     }
-
+    public function getEleve(){
+        $sql = 'SELECT nom, prenom, idClasse FROM eleve';
+        $req = $this->pdo->prepare($sql);
+        $req->execute();
+        return $req->fetch();
+    }
 }
 ?>
