@@ -10,7 +10,7 @@ class Upload{
         }
     }
 
-    private function uploadExcelData(){
+    public function uploadExcelData(){
         if(isset($_POST["fileSubmit"])){
             $file_error = $_FILES["excelFile"]["error"];
             switch ($file_error){
@@ -41,7 +41,7 @@ class Upload{
             }
         }
     }
-    private function insertStudentDatabase($data){
+    public function insertStudentDatabase($data){
         foreach ($data as $row){
             $nom = $row[1];
             $prenom = $row[2];
